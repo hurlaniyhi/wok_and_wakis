@@ -1,0 +1,12 @@
+.modalContainer {
+    display: grid !important;
+    place-items: center;
+}
+
+.modalContentContainer {
+    max-height: 90% !important;
+
+    @media (max-width: 530px) {
+        width: 90% !important;
+    }
+}

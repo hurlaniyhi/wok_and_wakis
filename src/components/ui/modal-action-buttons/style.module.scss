@@ -1,0 +1,10 @@
+.modalActionButtonContainer {
+    @media (max-width: 400px) {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+
+        div {
+            margin-left: 0 !important;
+        }
+    }
+}

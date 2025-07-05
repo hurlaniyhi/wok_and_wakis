@@ -1,0 +1,10 @@
+.navMenuPopupContainer {
+    display: none !important;
+    
+    @media (max-width: 750px) {
+        display: block !important;
+    }
+    @media (max-width: 300px) {
+        width: 95% !important;
+    }
+}

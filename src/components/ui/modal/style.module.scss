@@ -1,0 +1,111 @@
+.modalWrapper {
+    @media (max-width: 400px) {
+        padding-bottom: 15rem !important;
+    }
+}
+
+.selectableContainer {
+    //padding: 20px;
+    margin-top: 20px;
+    font-family: sans-serif;
+    //background-color: #f8f9fb;
+}
+
+.optionGroup {
+    margin-bottom: 20px;
+}
+
+.groupHeader {
+    background-color: #eef2f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    // margin-bottom: 12px;
+    flex-wrap: wrap;
+    padding: 20px;
+    // border-radius: 8px;
+}
+
+.groupHeader h3 {
+    margin: 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.groupHeader p {
+    color: #6c757d;
+    font-size: 14px;
+    margin: 0;
+}
+
+.arrow {
+    font-size: 18px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.optionList {
+    margin-top: 8px;
+    padding: 0 20px;
+}
+
+.option, .checkboxOption {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: white;
+    padding: 14px 20px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #07121D;
+} 
+
+.checkboxOption {
+    justify-content: space-between;
+}
+
+.option input, .cheeseCheckboxWithName input {
+    transform: scale(1.3);
+    border-color: 1px solid #DDE0E4;
+
+    &:checked {
+        accent-color: #08E9E1;
+    }
+}
+
+.cheeseCheckboxWithName {
+    span {
+        font-size: 14px;
+        font-weight: 500;
+        color: #07121D;
+    }
+}
+
+.price {
+    font-size: 14px;
+    font-weight: 500;
+    color: #486581;
+}
+
+.green {
+    color: green;
+}
+
+.summary {
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.formContainer {
+    margin-top: 0.8rem;
+    padding: 0 2rem;
+    width: 100%;
+    margin-top: 1rem;
+}

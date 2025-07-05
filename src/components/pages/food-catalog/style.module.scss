@@ -1,0 +1,19 @@
+.about_company_container {
+    @media (max-width: 425px) {
+        width: 90% !important;
+    }
+}
+
+.category_tab_container {
+    border-bottom: 1px solid #BCCCDC !important;
+    overflow-x: auto !important;
+    overflow: auto !important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    width: 100% !important;
+    white-space: nowrap !important;
+
+    &::-webkit-scrollbar {
+        display: none
+    }
+}
