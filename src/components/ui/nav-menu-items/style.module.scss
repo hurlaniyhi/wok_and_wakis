@@ -1,0 +1,12 @@
+.navMenuItemContainer {
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: flex-end !important;
+    gap: 2.5rem !important;
+
+    > div {
+        flex-direction: column !important;
+        justify-content: flex-end !important;
+    }
+
+}

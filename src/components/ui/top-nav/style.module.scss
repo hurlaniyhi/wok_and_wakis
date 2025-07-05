@@ -1,0 +1,39 @@
+.menuItemsWrapper {
+    @media (max-width: 750px) {
+        display: none !important;
+    }
+}
+
+.menuIconWrapper {
+    display: none !important;
+
+    @media (max-width: 750px) {
+        display: block !important;
+    }
+
+    svg {
+        color: #08090A;
+        font-size: 3rem;
+        transition: all .02s;
+    }
+}
+
+.logoContainer {
+    .logoSm {
+        display: none;
+    }
+
+    @media (max-width: 480px) {
+        .logoSm {
+            display: inline;
+        }
+
+        .logoMd {
+            display: none;
+        }
+    }
+
+    @media (max-width: 330px) {
+        display: none;
+    }
+}

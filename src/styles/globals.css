@@ -1,0 +1,217 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-sans: var(--font-inter), sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+html, body {
+  font-size: 62.5%;
+  box-sizing: border-box;
+
+  @media (max-width: 56.25em) {
+    font-size: 53%;
+  }
+
+  @media (max-width: 37.5em) {
+    font-size: 50%;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.img_covered {
+  min-height: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  height: 100%;
+  object-fit: cover;
+}
+
+.icon_scale_down {
+  @media (max-width: 900px) {
+    transform: scale(0.9);
+  }
+  @media (max-width: 600px) {
+    transform: scale(0.85);
+  }
+}
+
+.fixed_flex_shape {
+  flex-basis: auto !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+}
+
+.truncate_multiline {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+} */
+
+.center_item_horizontal {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.input-with-icon {
+  border: 1px solid #D0D5DD;
+  border-radius: .8rem;
+  background-color: transparent;
+  color:  #101828;
+  height: 4rem;
+  width: 100%;
+  position: relative;
+}
+
+.input-with-icon-tag, .input-with-icon span {
+  position: absolute !important;
+  top: 50% !important;
+  right: 1.5rem !important;
+  transform: translateY(-50%) !important;
+  font-size: 1.8rem;
+}
+
+.input-with-icon input, .input-with-icon select, .input-with-icon p {
+  height: 4rem;
+  border: none;
+  color: #101828;
+  background: transparent;
+  width: 100%;
+  padding: 0 5rem 0 1.5rem;
+  outline: none;
+  font-size: 1.6rem;
+} 
+
+@media (max-width: 550px) {
+  .input-with-icon input, .input-with-icon select, .input-with-icon p {
+    padding-right: 2rem;
+  }
+}
+
+.input-with-icon p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.input-with-icon select {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 0 0 1.5rem;
+  z-index: 2;
+}
+
+.input-with-icon select option {
+  color: #101828
+}
+
+.input-with-icon span {
+  font-size: 1.3rem;
+  font-weight: 400
+}
+
+.customOption, .checkboxOption {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: white;
+  padding: 14px 20px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #07121D;
+} 
+
+.checkboxOption {
+  justify-content: space-between;
+}
+
+.customOption input, .cheeseCheckboxWithName input {
+  transform: scale(1.3);
+  border-color: 1px solid #DDE0E4;
+}
+
+.customOption input:checked, .cheeseCheckboxWithName input:checked {
+  accent-color: #08E9E1;
+}
+
+.cheeseCheckboxWithName span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #07121D;
+}
+
+.checkboxPrice {
+  font-size: 14px;
+  font-weight: 500;
+  color: #486581;
+}
+
+.green {
+  color: green;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(44.5rem, 1fr));
+  gap: 2rem;
+  justify-content: center;
+
+  @media (max-width: 2000px) {
+    grid-template-columns: repeat(3, minmax(44.5rem, 1fr));
+  }
+
+  @media (max-width: 1425px) {
+    grid-template-columns: repeat(2, minmax(44.5rem, 1fr));
+  }
+  @media (max-width: 960px) {
+    grid-template-columns: repeat(1, minmax(44.5rem, 1fr));
+  }
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, minmax(44.5rem, 1fr));
+  }
+  @media (max-width: 815px) {
+    grid-template-columns: repeat(auto-fit, minmax(44.5rem, 1fr));
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+}

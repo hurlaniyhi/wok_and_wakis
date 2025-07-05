@@ -1,0 +1,19 @@
+.food_item_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.375rem; /* equivalent to gap-1.5 (6px) */
+    width: 100%;
+    max-width: 1280px;
+
+    @media (min-width: 640px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem; /* gap-4 = 16px */
+        padding: 1rem; /* p-4 = 16px */
+    }
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
