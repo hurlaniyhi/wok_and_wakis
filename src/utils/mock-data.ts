@@ -102,6 +102,33 @@ const foodItems: Array<FoodItem> = [
     }
 ]
 
+const cartItems = [
+    {
+        "selectedCheeses": [
+            "Add Swiss",
+            "Add Pepper Jack",
+            "Add Provolone"
+        ],
+        "eggStyle": "Over Hard",
+        "instructions": {
+            "kitchenNote": "",
+            "soldOutOption": ""
+        },
+        "quantity": 1,
+        "item": {
+            "id": 1,
+            "title": "Pick 2 & Fries",
+            "description": "Comes with fries and any sauce you want",
+            "category": "Mix & Match Combos",
+            "price": 8.5,
+            "isPopular": true,
+            "imageUrl": "https://i.postimg.cc/0yZn4sDM/edgar.jpg"
+        },
+        "cartId": 1
+    }
+]
+
 export default {
-    foodItems
+    foodItems,
+    cartItems
 }

@@ -15,6 +15,7 @@ import Checkbox from "./checkbox";
 import SegmentedButton from './segmented-button';
 import NavMenuItems from "./nav-menu-items";
 import NavMenuPopup from "./nav-menu-popup";
+import Cart from './cart'
 
 export {
     TopNav,
@@ -33,5 +34,6 @@ export {
     Checkbox,
     SegmentedButton,
     NavMenuItems,
-    NavMenuPopup
+    NavMenuPopup,
+    Cart
 }

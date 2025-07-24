@@ -1,24 +1,21 @@
-import { CartProvider, FeedbackProvider, FoodItemsProvider } from "@/providers";
 import { ReactNode } from "react";
+import { CartProvider, FeedbackProvider, FoodCatalogProvider } from "@/providers";
+import { CartItem } from "@/types";
 
 interface TestProvidersProps {
     children: ReactNode;
-    cartContext?: {
-        isCartOpen?: boolean;
-        toggleCart?: () => void;
-    };
+    cartItems?: Array<CartItem>,
     feedbackContext?: {
         isLoading?: boolean
-    },
-    apiContext?: {}
+    }
 }
 
-export const TestProviders = ({ children, feedbackContext }: TestProvidersProps) => (
-    <FoodItemsProvider>
-        <FeedbackProvider value={feedbackContext?.isLoading}>
-            <CartProvider>
+export const TestProviders = ({ children, cartItems }: TestProvidersProps) => (
+    <FoodCatalogProvider>
+        <FeedbackProvider>
+            <CartProvider initialCartItems={cartItems}>
                 {children}
             </CartProvider>
         </FeedbackProvider>
-    </FoodItemsProvider>
+    </FoodCatalogProvider>
 );

@@ -36,9 +36,16 @@ const sortFoodItems = (category: string, items: Array<FoodItem>) => {
     return grouped;
 };
 
+const getFoodSearchQuery = (category: string) => {
+    return category === 'Popular Items'
+        ? { param: 'isPopular', value: '1' }
+        : { param: 'category', value: category };
+};
+
 const wait = (time: number) => new Promise(res => setTimeout(res, time))
 
 export default {
     sortFoodItems,
+    getFoodSearchQuery,
     wait
 }

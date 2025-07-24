@@ -3,7 +3,7 @@ import { CustomContainer, FlexRow, Button, AbsoluteContainer } from "@/component
 import styles from '@/components/pages/food-catalog/style.module.scss'
 import { useFoodCategoryTabs } from "@/hooks"
 
-export default function FoodCategoryTabs ({ onTabSelection }: { onTabSelection: (selectedCategory: string) => void }) {
+export default function FoodCategoryTabs ({ onTabSelection }: { onTabSelection: (param: string, value: string) => void }) {
     const { tabs, selectedCategory, handleCategorySelection } = useFoodCategoryTabs(onTabSelection)
 
     return (

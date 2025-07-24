@@ -1,34 +1,31 @@
+import { useFoodCatalogContext } from "@/providers"
 import { FoodItem } from "@/types"
-import helpers from "@/utils/helpers"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useApi } from "./api"
 
 export function useFoodItems () {
-    const { fetchFoods, fetchFoodsState } = useApi()
+    const { foodCatalog: { selectedCategory } } = useFoodCatalogContext()
+    const { fetchFoods, fetchFoodsState, searchFoods, searchFoodsState } = useApi()
     const [foodItems, setFoodItems] = useState<Array<FoodItem>>([])
-    const [categorizedFoodItems, setCategorizedFoodItems] = useState<Record<string, FoodItem[]>>({})
 
-    useEffect(() => {
-        fetchFoodItems()
-    }, [])
+    // async function fetchFoodItems () {
+    //     const response = await fetchFoods()
+    //     if (Array.isArray(response?.data)) {
+    //         setFoodItems(response.data)
+    //     }
+    // }
 
-    async function fetchFoodItems () {
-        const response = await fetchFoods()
+    async function searchFoodItems (param: string, value: string) {
+        const response = await searchFoods(param, value)
         if (Array.isArray(response?.data)) {
             setFoodItems(response.data)
         }
     }
 
-    function handleSortFoodItem (selectedTab: string) {
-        const sortedFoodItems = helpers.sortFoodItems(selectedTab, foodItems)
-        
-        setCategorizedFoodItems(sortedFoodItems)
-    }
-
     return { 
-        categorizedFoodItems, 
-        categories: Object.keys(categorizedFoodItems),
-        handleSortFoodItem, 
-        isLoading: fetchFoodsState.loading 
+        searchFoodItems,
+        foodItems,
+        selectedCategory,
+        isLoading: fetchFoodsState.loading || searchFoodsState.loading
     }
 }

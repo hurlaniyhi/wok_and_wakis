@@ -1,5 +1,6 @@
-import { useFoodItemsContext } from "@/providers";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
+import { useFoodCatalogContext } from "@/providers";
+import helpers from "@/utils/helpers";
 
 const tabs = [
     "Popular Items", 
@@ -14,18 +15,24 @@ const tabs = [
     "Sides"
 ]
 
-export function useFoodCategoryTabs (onTabSelection: (selectedTab: string) => void) {
-    const { foodItems } = useFoodItemsContext()
-    const [selectedCategory, setSelectedCategory] = useState<string>("Popular Items")
+export function useFoodCategoryTabs (onTabSelection: (param: string, value: string) => void) {
+    const { foodCatalog: { selectedCategory }, updateSelectedCategory } = useFoodCatalogContext()
 
     useEffect(() => {
-        onTabSelection(selectedCategory)
-    }, [foodItems])
+        if (!selectedCategory) {
+            handleCategorySelection('Popular Items')
+        }
+    }, [selectedCategory])
 
-    const handleCategorySelection = (category: string) => {
-        setSelectedCategory(category)
-        onTabSelection(category)
-    }
+    const handleCategorySelection = useCallback((category: string) => {
+        updateSelectedCategory(category)
+        triggerFoodSearch(category)
+    }, [onTabSelection])
+
+    const triggerFoodSearch = (category: string) => {
+        const { param, value } = helpers.getFoodSearchQuery(category);
+        onTabSelection(param, value);
+    };
 
     return { selectedCategory, handleCategorySelection, tabs }
 }

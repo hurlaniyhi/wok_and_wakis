@@ -6,14 +6,9 @@ export default function FoodItemSkeleton () {
 
     return (
         <CustomContainer 
-            $padding='2.5' $topPadding='0'
+            $bottomPadding='2.5'
             data-testid="skeleton-container"
         >
-            <Skeleton 
-                className='h-[6rem]'
-                data-testid="skeleton-item" 
-            />
-
             <CustomContainer $topMargin='2'>
                 <CustomContainer>
                     <Skeleton 
