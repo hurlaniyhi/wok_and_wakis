@@ -1,11 +1,11 @@
 /* eslint-disable */
-import { CartContextType, CartItem } from "@/types";
+import { CartContextType, CartItem, ICartProvider } from "@/types";
 import React, {useContext, useEffect, useState} from "react";
 
 const CartContext = React.createContext<CartContextType|null>(null)
 
-export const CartProvider = (props: any) => {
-    const [cart, setCart] = useState<Array<CartItem>>([])
+export const CartProvider = ({children, initialCartItems}: ICartProvider) => {
+    const [cart, setCart] = useState<Array<CartItem>>(initialCartItems || [])
 
     useEffect(() => {
         restoreCartData()
@@ -48,15 +48,20 @@ export const CartProvider = (props: any) => {
         }
     }
 
+    function checkout () {
+        setCart([])
+    }
+
     const stateActions = {
         addItemToCart,
         removeFromCart,
-        getCartItemById
+        getCartItemById,
+        checkout
     }
 
     return (
         <CartContext.Provider value={{cart, ...stateActions}} >
-            {props.children}
+            {children}
         </CartContext.Provider>
     )
 }

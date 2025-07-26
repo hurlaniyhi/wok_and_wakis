@@ -49,10 +49,17 @@ export type CartContextType = {
     cart: Array<CartItem>,
     addItemToCart: (cartItem: CartItem) => void,
     removeFromCart: (cartId: number) => void,
-    getCartItemById: (cartId: number) => CartItem|undefined
+    getCartItemById: (cartId: number) => CartItem|undefined,
+    checkout: () => void
 }
 
-export type FoodItemsContextType = {
-    foodItems: FoodItem[],
-    storeFoodItems: (items: Array<FoodItem>) => void
+export type FoodCatalog = {
+    foodItems: Array<FoodItem>,
+    selectedCategory: string
+}
+
+export type FoodCatalogContextType = {
+    foodCatalog: FoodCatalog,
+    storeFoodItems: (items: Array<FoodItem>) => void,
+    updateSelectedCategory: (selectedCategory: string) => void
 }

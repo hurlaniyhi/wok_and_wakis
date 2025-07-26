@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Inter } from 'next/font/google';
-import { CartProvider, FeedbackProvider, FoodItemsProvider } from "@/providers";
+import { CartProvider, FeedbackProvider, FoodCatalogProvider } from "@/providers";
 import { GeneralFallback } from "@/components/error-fallback";
 import { ErrorBoundary } from 'react-error-boundary';
 
@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <ErrorBoundary 
             FallbackComponent={GeneralFallback}
         >
-            <FoodItemsProvider>
+            <FoodCatalogProvider>
                 <FeedbackProvider>
                     <CartProvider>
                         <main className={inter.className}>
@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
                         </main>
                     </CartProvider>
                 </FeedbackProvider>
-            </FoodItemsProvider>
+            </FoodCatalogProvider>
         </ErrorBoundary>
     )
 }
